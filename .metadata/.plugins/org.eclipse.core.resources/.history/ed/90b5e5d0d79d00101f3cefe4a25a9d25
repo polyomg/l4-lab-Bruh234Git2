@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="poly/product2/save" method="post">
+<input name="name">
+<input name="price">
+<button>Save</button>
+</form>
+<ul>
+<li><p th:text="${p1.name}"></p></li>
+<li><p th:text=${p1.price}></p></li>
+</ul>
+<ul th:if="${p2 != null}">
+<li><p th:text="${p2.name}"></p></li>
+<li><p th:text="${p2.price}"></p></li>
+</ul>
+<ul>
+<th:block th:each="item : ${items}">
+    <li th:text="${item.name}"></li>
+    <li th:text="${item.price}"></li>
+</th:block>
+</ul>
+
+</body>
+</html>

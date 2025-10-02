@@ -1,0 +1,16 @@
+# Server
+server.port=8080
+spring.mvc.view.prefix=/pages/
+spring.mvc.view.suffix=.jsp
+
+# SQL Server datasource (from persistence.xml)
+spring.datasource.url=jdbc:sqlserver://localhost:1433;database=PolyOE;encrypt=false
+spring.datasource.username=sa
+spring.datasource.password=282007
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+# JPA/Hibernate
+spring.jpa.database-platform=org.hibernate.dialect.SQLServer2012Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
