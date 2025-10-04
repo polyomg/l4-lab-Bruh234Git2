@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\mphat\Desktop\assignmentjava5\SOF3022"/>
 			<item value="C:\Users\mphat\eclipse-workspace\Lab3"/>
 			<item value="C:\Users\mphat\eclipse-workspace\SOF3022-phattmts00947-lab3"/>
 			<item value="C:\Users\mphat\Downloads\Java4Ass2\Java4Ass2"/>
