@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<nav th:fragment="menuFrag">
+		<ul style="list-style: none; display: flex; gap: 20px;">
+			<li><a th:href="@{/home/index}">[[#{menu.home}]]</a></li>
+			<li><a th:href="@{/home/about}">[[#{menu.about}]]</a></li>
+			
+			<li>
+				<a th:href="@{''(lang='vi')}">🇻🇳 Tiếng Việt</a> | 
+				<a th:href="@{''(lang='en')}">🇺🇸 English</a>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>

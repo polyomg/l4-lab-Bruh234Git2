@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Product Sorting</title>
+</head>
+<body>
+    <!-- Hiển thị tiêu đề với field đang được sắp xếp -->
+    <h3>SORTING BY <th:block th:text="${param.field}"/></h3>
+    
+    <!-- Bảng hiển thị danh sách sản phẩm -->
+    <table border="1" style="width:100%">
+        <tr>
+            <!-- Link sắp xếp theo Id -->
+            <th><a th:href="@{/product/sort?field=id}">Id</a></th>
+            <!-- Link sắp xếp theo Name -->
+            <th><a th:href="@{/product/sort?field=name}">Name</a></th>
+            <!-- Link sắp xếp theo Price -->
+            <th><a th:href="@{/product/sort?field=price}">Price</a></th>
+            <!-- Link sắp xếp theo Date -->
+            <th><a th:href="@{/product/sort?field=createDate}">Date</a></th>
+        </tr>
+        <!-- Lặp qua danh sách items (products) -->
+        <th:block th:each="item: ${items}">
+            <tr>
+                <!-- Hiển thị id của product -->
+                <td th:text="${item.id}"></td>
+                <!-- Hiển thị name của product -->
+                <td th:text="${item.name}"></td>
+                <!-- Hiển thị price của product -->
+                <td th:text="${item.price}"></td>
+                <!-- Hiển thị createDate của product -->
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>
