@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory By Category - Lab7</title>
+</head>
+<body>
+    <h1>TỒN KHO THEO LOẠI</h1>
+    
+    <!-- Bảng hiển thị báo cáo tổng hợp -->
+    <!-- items: Danh sách Report được truyền từ controller -->
+    <!-- Mỗi Report chứa: group (category), sum (tổng giá), count (số lượng) -->
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Loại hàng</th>
+            <th>Tổng giá</th>
+            <th>Số sản phẩm</th>
+        </tr>
+        <th:block th:each="item: ${items}">
+            <tr>
+                <!-- ${item.group}: Lấy nhóm/loại hàng (category) -->
+                <!-- Phương thức getGroup() trong interface Report sẽ được JPA tự động implement -->
+                <td th:text="${item.group}"></td>
+                
+                <!-- ${item.sum}: Lấy tổng giá trị (sum of price) -->
+                <!-- #numbers.formatDecimal: Format số thập phân với 2 chữ số sau dấu phẩy -->
+                <td th:text="${#numbers.formatDecimal(item.sum, 1, 2)}"></td>
+                
+                <!-- ${item.count}: Lấy số lượng sản phẩm (count) -->
+                <td th:text="${item.count}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<th:block th:each="item: ${items}">
+			<li>${item.name} (${item.price}) :: [<a
+				th:href="@{|/cart/add/${item.id}|}">Add To Cart</a>]
+			</li>
+		</th:block>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Product Pagination</title>
+</head>
+<body>
+    <h3>PAGINATION</h3>
+    
+    <!-- Bảng hiển thị danh sách sản phẩm của trang hiện tại -->
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+        <!-- Lặp qua danh sách sản phẩm trong page.content -->
+        <th:block th:each="item: ${page.content}">
+            <tr>
+                <!-- Hiển thị thông tin sản phẩm -->
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.createDate}"></td>
+            </tr>
+        </th:block>
+    </table>
+    
+    <!-- Các link điều hướng phân trang -->
+    <!-- Link đến trang đầu tiên -->
+    <a th:href="@{/product/page?p=0}">First</a>
+    <!-- Link đến trang trước -->
+    <a th:href="@{|/product/page?p=${page.number - 1}|}">Previous</a>
+    <!-- Link đến trang tiếp theo -->
+    <a th:href="@{|/product/page?p=${page.number + 1}|}">Next</a>
+    <!-- Link đến trang cuối cùng -->
+    <a th:href="@{|/product/page?p=${page.totalPages - 1}|}">Last</a>
+    
+    <!-- Hiển thị thông tin phân trang -->
+    <ul>
+        <!-- Số thực thể hiển thị trên trang hiện tại -->
+        <li>Số thực thể hiển thị tại: [[${page.numberOfElements}]]</li>
+        <!-- Trang số hiện tại -->
+        <li>Trang số: [[${page.number}]]</li>
+        <!-- Kích thước trang (số sản phẩm mỗi trang) -->
+        <li>Kích thước trang: [[${page.size}]]</li>
+        <!-- Tổng số thực thể -->
+        <li>Tổng số thực thể: [[${page.totalElements}]]</li>
+        <!-- Tổng số trang -->
+        <li>Tổng số trang: [[${page.totalPages}]]</li>
+    </ul>
+</body>
+</html>
