@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab7 - JpaRepository 2</title>
+</head>
+<body>
+    <h1>LAB7: JPAREPOSITORY 2</h1>
+    <p>Lập trình Java 5 - Spring Boot & JPA</p>
+    
+    <h2>Bài 1: Tìm kiếm theo khoảng giá (2 điểm)</h2>
+    <p>Tìm kiếm sản phẩm theo khoảng giá sử dụng @Query với JPQL.</p>
+    <a href="/product/search">Tìm kiếm theo giá</a>
+    
+    <hr>
+    
+    <h2>Bài 2: Tìm kiếm và phân trang (2 điểm)</h2>
+    <p>Tìm kiếm sản phẩm theo từ khóa kết hợp với phân trang.</p>
+    <a href="/product/search-and-page">Tìm kiếm & Phân trang</a>
+    
+    <hr>
+    
+    <h2>Bài 3: Báo cáo tồn kho theo loại (1 điểm)</h2>
+    <p>Hiển thị báo cáo tổng hợp theo loại sản phẩm.</p>
+    <a href="/report/inventory-by-category">Báo cáo tồn kho</a>
+    
+    <hr>
+    
+    <h2>Bài 4 & 5: Sử dụng DSL (Derived Query Methods)</h2>
+    <p>Các bài 4 và 5 sử dụng DSL (Domain Specific Language) thay vì @Query.</p>
+    <p>Spring Data JPA tự động tạo query từ tên method.</p>
+    <p><em>Các method DSL đã được implement trong ProductDAO và có thể test tương tự bài 1 và 2.</em></p>
+</body>
+</html>

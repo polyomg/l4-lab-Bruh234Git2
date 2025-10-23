@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search & Page - Lab7</title>
+</head>
+<body>
+    <h1>SEARCH & PAGE</h1>
+    
+    <!-- Form tìm kiếm theo từ khóa -->
+    <!-- th:value="${keywords}": Hiển thị giá trị từ khóa đã tìm (lưu trong session) -->
+    <form action="/product/search-and-page" method="post">
+        <input name="keywords" th:value="${keywords}" placeholder="Keywords">
+        <button>Search</button>
+    </form>
+    
+    <!-- Bảng hiển thị kết quả phân trang -->
+    <!-- ${page.content}: Lấy danh sách items trong trang hiện tại -->
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+        <th:block th:each="item: ${page.content}">
+            <tr>
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd')}"></td>
+            </tr>
+        </th:block>
+    </table>
+    
+    <!-- Các link phân trang -->
+    <!-- th:href: Tạo link động với tham số p (page number) -->
+    <!-- @{...}: Thymeleaf URL expression -->
+    <!-- th:if: Chỉ hiển thị link nếu điều kiện đúng -->
+    <!-- page.first: true nếu đang ở trang đầu -->
+    <!-- page.last: true nếu đang ở trang cuối -->
+    <a th:if="${!page.first}" th:href="@{/product/search-and-page(p=0)}">First</a>
+    <a th:if="${!page.first}" th:href="@{/product/search-and-page(p=${page.number - 1})}">Previous</a>
+    <a th:if="${!page.last}" th:href="@{/product/search-and-page(p=${page.number + 1})}">Next</a>
+    <a th:if="${!page.last}" th:href="@{/product/search-and-page(p=${page.totalPages - 1})}">Last</a>
+    
+    <!-- Thông tin phân trang -->
+    <!-- ${page.numberOfElements}: Số thực thể hiển thị trên trang hiện tại -->
+    <!-- ${page.number}: Số thứ tự trang hiện tại (bắt đầu từ 0) -->
+    <!-- ${page.size}: Kích thước trang (số items tối đa mỗi trang) -->
+    <!-- ${page.totalElements}: Tổng số thực thể trong toàn bộ kết quả -->
+    <!-- ${page.totalPages}: Tổng số trang -->
+    <ul>
+        <li>Số thực thể hiển tại: [[${page.numberOfElements}]]</li>
+        <li>Trang số: [[${page.number}]]</li>
+        <li>Kích thước trang: [[${page.size}]]</li>
+        <li>Tổng số thực thể: [[${page.totalElements}]]</li>
+        <li>Tổng số trang: [[${page.totalPages}]]</li>
+    </ul>
+</body>
+</html>
